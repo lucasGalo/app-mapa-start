@@ -14,6 +14,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolygonOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -52,15 +53,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng ibirapuera = new LatLng(-23.587097, -46.657635);
 
         // Desenhando uma forma circular no mapa.
-        CircleOptions circleOptions = new CircleOptions();
+       /*CircleOptions circleOptions = new CircleOptions();
         circleOptions.center(ibirapuera); // diz onde será o centro no circulo
         circleOptions.radius(500); //em metros
         //circleOptions.fillColor(Color.BLUE); // definindo uma cor
         circleOptions.strokeWidth(1); // especura da borda
         circleOptions.strokeColor(Color.GREEN);
         circleOptions.fillColor(Color.argb(50,255,153,0)); // definindo uma cor especifica
-
         mMap.addCircle(circleOptions);
+        */
+
+        // definindo uma forma aleatória a partir da latitude e longitude do map
+        PolygonOptions polygonOptions = new PolygonOptions();
+        polygonOptions.add(new LatLng(-23.586332, -46.658754));
+        polygonOptions.add(new LatLng(-23.585615, -46.656662));
+        polygonOptions.add(new LatLng(-23.587158, -46.657037));
+        mMap.addPolygon(polygonOptions);
 
         // Adicionadno evento de clique no Mapa
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
