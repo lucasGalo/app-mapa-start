@@ -1,8 +1,8 @@
 package com.galo.mapas;
 
-import androidx.fragment.app.FragmentActivity;
-
 import android.os.Bundle;
+
+import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -39,8 +39,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //LatLng sydney = new LatLng(-34, 151);
+        //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        // localizando o parque ibirapuera
+        LatLng ibirapuera = new LatLng(-23.587097, -46.657635);
+        mMap.addMarker(new MarkerOptions().position(ibirapuera).title("Parque Ibirapuera"));
+        // 2.0 ate 21.0
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ibirapuera, 16));
     }
 }
