@@ -1,6 +1,8 @@
 package com.galo.mapas;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -9,6 +11,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -48,10 +51,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // localizando o parque ibirapuera
         LatLng ibirapuera = new LatLng(-23.587097, -46.657635);
 
+        // Desenhando uma forma circular no mapa.
+        CircleOptions circleOptions = new CircleOptions();
+        circleOptions.center(ibirapuera); // diz onde será o centro no circulo
+        circleOptions.radius(500); //em metros
+        circleOptions.fillColor(Color.BLUE); // definindo uma cor
+
+        mMap.addCircle(circleOptions);
+
         // Adicionadno evento de clique no Mapa
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
+
+                Double latitude = latLng.latitude;
+                Double longitude = latLng.longitude;
+
+                // Exibindo a msg na tela
+                Toast.makeText(MapsActivity.this,
+                        "Lat:" + latitude + " long:" + longitude,
+                        Toast.LENGTH_LONG).show();
+
                 // colocando o icone loja onde o usuário clicar
                 mMap.addMarker(new MarkerOptions()
                         .position(latLng)
