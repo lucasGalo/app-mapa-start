@@ -38,6 +38,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        // tipo de mapa exibido
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         // Add a marker in Sydney and move the camera
         //LatLng sydney = new LatLng(-34, 151);
@@ -47,7 +49,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng ibirapuera = new LatLng(-23.587097, -46.657635);
         mMap.addMarker(new MarkerOptions().position(ibirapuera).title("Parque Ibirapuera")
                 // definindo outra cor para o icone
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                //.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                // adicionando icone personalizado
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.carro)));
         // 2.0 ate 21.0
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ibirapuera, 16));
     }
