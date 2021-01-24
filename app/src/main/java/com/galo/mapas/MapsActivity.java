@@ -47,6 +47,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         // localizando o parque ibirapuera
         LatLng ibirapuera = new LatLng(-23.587097, -46.657635);
+
+        // Adicionadno evento de clique no Mapa
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                // colocando o icone loja onde o usuário clicar
+                mMap.addMarker(new MarkerOptions()
+                        .position(latLng)
+                        .title("Local")
+                        .snippet("Descrição")
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.icone_loja)));
+            }
+        });
+
         mMap.addMarker(new MarkerOptions().position(ibirapuera).title("Parque Ibirapuera")
                 // definindo outra cor para o icone
                 //.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
