@@ -68,6 +68,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         polygonOptions.add(new LatLng(-23.586332, -46.658754));
         polygonOptions.add(new LatLng(-23.585615, -46.656662));
         polygonOptions.add(new LatLng(-23.587158, -46.657037));
+        polygonOptions.strokeWidth(3); // espessura da borda
+        polygonOptions.strokeColor(Color.BLUE);
         mMap.addPolygon(polygonOptions);
 
         // Adicionadno evento de clique no Mapa
