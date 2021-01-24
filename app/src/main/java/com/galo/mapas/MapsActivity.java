@@ -15,6 +15,7 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -64,13 +65,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         */
 
         // definindo uma forma aleatória a partir da latitude e longitude do map
-        PolygonOptions polygonOptions = new PolygonOptions();
+      /*  PolygonOptions polygonOptions = new PolygonOptions();
         polygonOptions.add(new LatLng(-23.586332, -46.658754));
         polygonOptions.add(new LatLng(-23.585615, -46.656662));
         polygonOptions.add(new LatLng(-23.587158, -46.657037));
         polygonOptions.strokeWidth(3); // espessura da borda
         polygonOptions.strokeColor(Color.BLUE);
         mMap.addPolygon(polygonOptions);
+
+       */
 
         // Adicionadno evento de clique no Mapa
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
@@ -84,6 +87,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Toast.makeText(MapsActivity.this,
                         "Lat:" + latitude + " long:" + longitude,
                         Toast.LENGTH_LONG).show();
+
+                // adicionando linhas a partir do clique do usuário.
+                PolylineOptions polylineOptions = new PolylineOptions();
+                polylineOptions.add(ibirapuera);
+                polylineOptions.add(latLng);
+                polylineOptions.color(Color.BLUE);
+                polylineOptions.width(20);
+
+                mMap.addPolyline(polylineOptions);
 
                 // colocando o icone loja onde o usuário clicar
                 mMap.addMarker(new MarkerOptions()
