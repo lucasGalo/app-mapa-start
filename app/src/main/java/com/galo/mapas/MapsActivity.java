@@ -8,6 +8,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -44,7 +45,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         // localizando o parque ibirapuera
         LatLng ibirapuera = new LatLng(-23.587097, -46.657635);
-        mMap.addMarker(new MarkerOptions().position(ibirapuera).title("Parque Ibirapuera"));
+        mMap.addMarker(new MarkerOptions().position(ibirapuera).title("Parque Ibirapuera")
+                // definindo outra cor para o icone
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
         // 2.0 ate 21.0
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ibirapuera, 16));
     }
