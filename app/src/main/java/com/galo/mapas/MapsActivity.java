@@ -55,7 +55,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         CircleOptions circleOptions = new CircleOptions();
         circleOptions.center(ibirapuera); // diz onde será o centro no circulo
         circleOptions.radius(500); //em metros
-        circleOptions.fillColor(Color.BLUE); // definindo uma cor
+        //circleOptions.fillColor(Color.BLUE); // definindo uma cor
+        circleOptions.strokeWidth(1); // especura da borda
+        circleOptions.strokeColor(Color.GREEN);
+        circleOptions.fillColor(Color.argb(50,255,153,0)); // definindo uma cor especifica
 
         mMap.addCircle(circleOptions);
 
